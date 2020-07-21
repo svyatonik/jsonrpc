@@ -55,7 +55,7 @@ impl<'a> Visitor<'a> for IdVisitor {
 	}
 
 	fn visit_string<E>(self, value: String) -> Result<Self::Value, E> where E: de::Error {
-		value.parse::<u64>().map(Id::Num).or(Ok(Id::Str(value)))
+		Ok(Id::Str(value))
 	}
 }
 
